@@ -20,7 +20,12 @@ template '/etc/nginx/nginx.conf' do
   notifies :restart, 'service[nginx]', :delayed
 end
 
-#zap_directory '/etc/nginx/conf.d' if node['nginx_server']['manage_confd']
+if node['nginx_server']['manage_confd'] # ~FC023
+  zap_directory '/etc/nginx/conf.d' do
+    klass [Chef::Resource::File, Chef::Resource::Template,
+           Chef::Resource::NginxServerBlock]
+  end
+end
 
 service 'nginx' do
   action [:enable, :start]

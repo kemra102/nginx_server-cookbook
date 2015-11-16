@@ -31,7 +31,7 @@ end
 
 action :delete do
   global_nginx = resources('service[nginx]')
-  
+
   template "/etc/nginx/conf.d/#{name.tr(' ', '_')}.conf" do
     action :delete
     notifies :reload, global_nginx, :delayed
