@@ -1,0 +1,27 @@
+user nginx;
+worker_processes <%= node['cpu']['total'] %>;
+
+error_log /var/log/nginx/error.log <%= node['nginx_server']['config']['error_log_level'] %>;
+pid       /var/run/nginx.pid;
+
+events {
+  worker_connections <%= node['nginx_server']['config']['worker_connections'] %>;
+}
+
+http {
+  include      /etc/nginx/mime.types;
+  default_type application/octet-stream;
+
+  log_format main <%= node['nginx_server']['config']['log_format'] %>;
+
+  access_log /var/log/nginx/access.log main;
+
+  sendfile   <%= node['nginx_server']['config']['sendfile'] %>;
+  tcp_nopush <%= node['nginx_server']['config']['tcp_nopush'] %>;
+
+  keepalive_timeout <%= node['nginx_server']['config']['keepalive_timeout'] %>;
+
+  gzip <%= node['nginx_server']['config']['gzip'] %>;
+
+  include /etc/nginx/conf.d/*.conf;
+}

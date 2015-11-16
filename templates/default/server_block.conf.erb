@@ -1,0 +1,22 @@
+server {
+  listen <%= @listen %>;
+  server_name <%= @server_name %>;
+
+  root <%= @root %>;
+
+  index <%= @index %>;
+
+  <%  if @config -%>
+  <%-   @config.each_pair do |k, v| -%> 
+  <%      unless v.respond_to?(:each_pair) -%>
+  <%=       "#{k} #{v};" %>
+  <%      else -%>
+  <%=       "#{k} {" %>
+  <%        v.each_pair do |k, v| -%>
+  <%=         "  #{k} #{v};" %>
+  <%        end -%>
+  <%=       '}' %>
+  <%      end -%>
+  <%   end -%>
+  <%  end -%>
+}

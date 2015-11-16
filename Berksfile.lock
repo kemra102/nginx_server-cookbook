@@ -1,0 +1,20 @@
+DEPENDENCIES
+  nginx_server
+    path: .
+    metadata: true
+  nginx_server-test
+    path: test/fixtures/cookbooks/nginx_server-test
+
+GRAPH
+  nginx_server (0.1.0)
+    yum-epel (>= 0.3.6)
+    yum-nginx (>= 0.0.0)
+    zap (>= 0.1.0)
+  nginx_server-test (1.0.0)
+    nginx_server (>= 0.0.0)
+  yum (3.7.1)
+  yum-epel (0.6.3)
+    yum (~> 3.2)
+  yum-nginx (0.1.0)
+    yum (~> 3.6)
+  zap (0.8.7)
