@@ -21,9 +21,10 @@ template '/etc/nginx/nginx.conf' do
 end
 
 if node['nginx_server']['manage_confd'] # ~FC023
-  zap_directory '/etc/nginx/conf.d' do
+  zap_directory 'nginx_confd' do
     klass [Chef::Resource::File, Chef::Resource::Template,
            Chef::Resource::NginxServerBlock]
+    path '/etc/nginx/conf.d'
   end
 end
 
