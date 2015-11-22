@@ -1,5 +1,5 @@
 default['nginx_server']['manage_repo'] = true
-default['nginx_server']['repo'] = 'nginx'
+default['nginx_server']['repo'] = 'nginx-stable'
 default['nginx_server']['config_cookbook'] = 'nginx_server'
 default['nginx_server']['manage_confd'] = true
 
