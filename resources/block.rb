@@ -16,7 +16,6 @@ end
 action :create do
   global_nginx = resources('service[nginx]')
 
-  #template "/etc/nginx/conf.d/#{name.tr(' ', '_')}.conf" do
   template path do
     cookbook 'nginx_server'
     source 'server_block.conf.erb'
