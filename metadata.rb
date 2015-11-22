@@ -8,4 +8,4 @@ version '0.1.0'
 
 depends 'yum-epel', '>= 0.3.6'
 depends 'yum-nginx'
-depends 'zap', '>= 0.1.0'
+depends 'zap', '>= 0.6.0'
