@@ -11,6 +11,7 @@ platforms:
   - name: centos-7
     driver_config:
       provision_command:
+        - yum -y install iproute
         - >
           curl -L -O https://www.opscode.com/chef/install.sh &&
           bash install.sh -v <%= ENV.fetch 'CHEF_VERSION', '12.5' %>
@@ -25,7 +26,11 @@ platforms:
       privileged: true
 
 suites:
-  - name: default
+  - name: minimal
     run_list:
-      - recipe[nginx_server-test]
+      - recipe[nginx_server-test::minimal]
+    attributes:
+  - name: multiple_listen
+    run_list:
+      - recipe[nginx_server-test::multiple_listen]
     attributes:

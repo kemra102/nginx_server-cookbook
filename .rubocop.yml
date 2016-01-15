@@ -1,0 +1,6 @@
+Metrics/LineLength:
+  Exclude:
+    - 'test/integration/minimal/serverspec/nginx_spec.rb'
+Style/WordArray:
+  Exclude:
+    - 'test/fixtures/cookbooks/nginx_server-test/recipes/multiple_listen.rb'

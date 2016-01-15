@@ -1,5 +1,9 @@
 server {
-  listen <%= @listen %>;
+  <%- if @listen.any? -%>
+    <%- @listen.each do |line| -%>
+  <%= line %>
+    <%- end -%>
+  <% end %>
   server_name <%= @server_name %>;
 
   root <%= @root %>;

@@ -40,12 +40,15 @@ describe service('nginx') do
   it { should be_running }
 end
 
-describe file('/etc/nginx/conf.d/my_fake_site.conf') do
+describe port(80) do
+  it { should be_listening }
+end
+
+describe file('/etc/nginx/conf.d/minimal_config.conf') do
   it { should be_file }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
   it { should be_mode 644 }
-  it { should contain 'listen 80;' }
   it { should contain 'root /usr/share/nginx/html;' }
   it { should contain 'index index.html;' }
   it { should contain 'server_name www.example.org;' }

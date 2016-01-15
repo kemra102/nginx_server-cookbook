@@ -11,7 +11,7 @@ include_recipe 'nginx_server::_repo' if node['nginx_server']['manage_repo']
 package 'nginx'
 
 template '/etc/nginx/nginx.conf' do
-  cookbook node['nginx_server']['config_cookbook']
+  cookbook 'nginx_server'
   source 'nginx.conf.erb'
   owner 'root'
   group 'root'
