@@ -1,9 +1,13 @@
+resource_name :nginx_vhost
+
 property :name, [String, Symbol], required: true, name_property: true
 property :listen, Array, required: false
 property :server_name, [String, Array], required: false
 property :root, String, required: true, default: '/usr/share/nginx/html'
 property :index, String, required: true, default: 'index.html'
 property :config, Hash, required: false
+
+default_action :create
 
 def real_server_name
   server_name || name
@@ -34,7 +38,7 @@ action :create do
 
   template path do
     cookbook 'nginx_server'
-    source 'server_block.conf.erb'
+    source 'vhost.conf.erb'
     owner 'root'
     group 'root'
     mode '0644'
@@ -52,7 +56,7 @@ end
 action :delete do
   global_nginx = resources('service[nginx]')
 
-  template path do
+  file path do
     action :delete
     notifies :reload, global_nginx, :delayed
   end

@@ -1,6 +1,6 @@
 include_recipe 'nginx_server::default'
 
-nginx_server_block 'multiple listen' do
+nginx_vhost 'multiple listen' do
   server_name 'www.example.org'
   listen [
     {
