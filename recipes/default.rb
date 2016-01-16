@@ -23,7 +23,7 @@ end
 if node['nginx_server']['manage_confd'] # ~FC023
   zap_directory '/etc/nginx/conf.d' do
     klass [Chef::Resource::File, Chef::Resource::Template,
-           Chef::Resource::Link, Chef::Resource::NginxServerNginxVhost]
+           Chef::Resource::Link, Chef::Resource::NginxServerVhost]
   end
 end
 

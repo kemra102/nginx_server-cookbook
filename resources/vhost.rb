@@ -1,5 +1,3 @@
-resource_name :nginx_vhost
-
 property :name, [String, Symbol], required: true, name_property: true
 property :listen, Array, required: false
 property :server_name, [String, Array], required: false
