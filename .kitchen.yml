@@ -30,7 +30,7 @@ suites:
     run_list:
       - recipe[nginx_server-test::minimal]
     attributes:
-  - name: multiple_listen
+  - name: kitchen_sink
     run_list:
-      - recipe[nginx_server-test::multiple_listen]
+      - recipe[nginx_server-test::kitchen_sink]
     attributes:

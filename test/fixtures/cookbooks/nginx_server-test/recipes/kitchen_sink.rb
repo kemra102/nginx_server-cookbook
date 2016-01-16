@@ -1,6 +1,6 @@
 include_recipe 'nginx_server::default'
 
-nginx_server_vhost 'multiple listen' do
+nginx_server_vhost 'kitchen sink' do
   server_name 'www.example.org'
   listen [
     {
@@ -27,4 +27,14 @@ nginx_server_vhost 'multiple listen' do
       ]
     }
   ]
+  config ({
+    'error_page' => '404 /404.html',
+    'location ~ \.php$' => {
+      'try_files' => '$uri =404',
+      'fastcgi_pass' => 'unix:/var/run/php5-fpm.sock',
+      'fastcgi_index' => 'index.php',
+      'fastcgi_param' => 'SCRIPT_FILENAME $document_root$fastcgi_script_name',
+      'include' => 'fastcgi_params'
+    }
+  })
 end
