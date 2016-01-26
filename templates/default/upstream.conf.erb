@@ -1,0 +1,18 @@
+upstream <%= @upstream_name %> {
+  <%- if @ip_hash -%>
+  ip_hash;
+  <%- end -%>
+  <%- if @keepalive -%>
+  keepalive <%= @keepalive %>;
+  <%- end -%>
+  <%- if @ntlm -%>
+  ntlm;
+  <%- end -%>
+  <%- if @least_conn -%>
+  least_conn;
+  <%- end -%>
+
+  <%- @servers.each do |server| -%>
+  server <%= server[0] %> <%= server.drop(1).join(' ') %>;
+  <%- end -%>
+}
