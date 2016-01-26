@@ -20,9 +20,9 @@ end
 
 describe file('/etc/nginx/conf.d/all_options.conf') do
   it { should contain 'upstream appservers {' }
-  it { should contain 'server 192.168.1.100:8000 max_fails=3 fail_timeout=30s;' }
-  it { should contain 'server 192.168.1.101:8000 max_fails=3 fail_timeout=30s;' }
-  it { should contain 'server 192.168.1.102:8000 max_fails=3 fail_timeout=30s;' }
+  it { should contain 'server 192.168.1.100:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
+  it { should contain 'server 192.168.1.101:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
+  it { should contain 'server 192.168.1.102:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
   it { should contain 'ip_hash;' }
   it { should contain 'keepalive 30;' }
   it { should contain 'ntlm;' }
