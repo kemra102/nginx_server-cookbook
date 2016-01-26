@@ -10,7 +10,7 @@ describe file('/etc/yum.repos.d/nginx-mainline.repo') do
 end
 
 describe package('nginx') do
-  it { should be_installed }
+  it { should be_installed.with_version('1.9') }
 end
 
 describe file('/etc/nginx/nginx.conf') do
@@ -86,23 +86,23 @@ describe file('/etc/nginx/conf.d/all_options.conf') do
 end
 
 describe port(80) do
-  it { should be_listening }
+  it { should be_listening.on('0.0.0.0').with('tcp') }
 end
 
 describe port(81) do
-  it { should be_listening }
+  it { should be_listening.on('0.0.0.0').with('tcp') }
 end
 
 describe port(82) do
-  it { should be_listening }
+  it { should be_listening.on('0.0.0.0').with('tcp') }
 end
 
 describe port(83) do
-  it { should be_listening }
+  it { should be_listening.on('0.0.0.0').with('tcp') }
 end
 
 describe port(443) do
-  it { should be_listening }
+  it { should be_listening.on('0.0.0.0').with('tcp') }
 end
 
 describe service('nginx') do
