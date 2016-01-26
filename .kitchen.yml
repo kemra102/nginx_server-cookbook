@@ -18,15 +18,7 @@ platforms:
       privileged: true
 
 suites:
-  - name: minimal
+  - name: default
     run_list:
-      - recipe[nginx_server-test::minimal]
-    attributes:
-  - name: kitchen_sink
-    run_list:
-      - recipe[nginx_server-test::kitchen_sink]
-    attributes:
-  - name: upstream
-    run_list:
-      - recipe[nginx_server-test::upstream]
+      - recipe[nginx_server-test::default]
     attributes:
