@@ -55,7 +55,7 @@ describe file('/etc/nginx/conf.d/kitchen_sink.conf') do
   it { should contain 'try_files $uri =404;' }
   it { should contain 'fastcgi_pass unix:/var/run/php5-fpm.sock;' }
   it { should contain 'fastcgi_index index.php;' }
-  it { should contain 'fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;' } # rubocop:disable Metrics/LineLength
+  it { should contain 'fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;' }
   it { should contain 'include fastcgi_params;' }
 end
 
@@ -77,9 +77,9 @@ end
 
 describe file('/etc/nginx/conf.d/all_options.conf') do
   it { should contain 'upstream appservers {' }
-  it { should contain 'server 192.168.1.100:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
-  it { should contain 'server 192.168.1.101:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
-  it { should contain 'server 192.168.1.102:8000 max_fails=3 fail_timeout=30s;' } # rubocop:disable Metrics/LineLength
+  it { should contain 'server 192.168.1.100:8000 max_fails=3 fail_timeout=30s;' }
+  it { should contain 'server 192.168.1.101:8000 max_fails=3 fail_timeout=30s;' }
+  it { should contain 'server 192.168.1.102:8000 max_fails=3 fail_timeout=30s;' }
   it { should contain 'ip_hash;' }
   it { should contain 'keepalive 30;' }
   it { should contain 'least_conn;' }

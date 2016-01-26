@@ -1,9 +1,9 @@
 Metrics/LineLength:
   Exclude:
-    - 'test/integration/minimal/serverspec/nginx_spec.rb'
+    - 'test/integration/default/serverspec/nginx_spec.rb'
 Style/WordArray:
   Exclude:
-    - 'test/fixtures/cookbooks/nginx_server-test/recipes/kitchen_sink.rb'
+    - 'test/fixtures/cookbooks/nginx_server-test/recipes/default.rb'
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
-    - 'test/fixtures/cookbooks/nginx_server-test/recipes/kitchen_sink.rb'
+    - 'test/fixtures/cookbooks/nginx_server-test/recipes/default.rb'
