@@ -5,9 +5,6 @@ upstream <%= @upstream_name %> {
   <%- if @keepalive -%>
   keepalive <%= @keepalive %>;
   <%- end -%>
-  <%- if @ntlm -%>
-  ntlm;
-  <%- end -%>
   <%- if @least_conn -%>
   least_conn;
   <%- end -%>

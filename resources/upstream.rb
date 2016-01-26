@@ -3,7 +3,6 @@ property :upstream_name, String, required: false
 property :servers, Array, required: true
 property :ip_hash, [FalseClass, TrueClass], required: false, default: false
 property :keepalive, Integer, required: false
-property :ntlm, [FalseClass, TrueClass], required: false, default: false
 property :least_conn, [FalseClass, TrueClass], required: false, default: false
 
 default_action :create
@@ -30,7 +29,6 @@ action :create do
       servers: servers,
       ip_hash: ip_hash,
       keepalive: keepalive,
-      ntlm: ntlm,
       least_conn: least_conn
     )
     notifies :reload, global_nginx, :delayed
