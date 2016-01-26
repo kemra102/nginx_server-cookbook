@@ -4,8 +4,8 @@ when 'epel'
 when 'nginx-stable'
   include_recipe 'yum-nginx::default'
 when 'nginx-mainline'
-  node.default['yum-nginx']['repos']['nginx-stable']['manages'] = false
-  node.default['yum-nginx']['repos']['nginx-mainline']['manages'] = true
+  node.default['yum-nginx']['repos']['nginx-stable']['managed'] = false
+  node.default['yum-nginx']['repos']['nginx-mainline']['managed'] = true
   include_recipe 'yum-nginx::default'
 else
   fail("#{node['nginx_server']['repo']} is not an allowed value for
