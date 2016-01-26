@@ -2,9 +2,9 @@
 # Cookbook Name:: nginx_server
 # Recipe:: default
 #
-# Copyright 2015, Sky Betting & Gaming
+# Copyright 2016, Danny Roberts
 #
-# All rights reserved - Do Not Redistribute
+# BSD-2-Clause
 #
 include_recipe 'nginx_server::_repo' if node['nginx_server']['manage_repo']
 
