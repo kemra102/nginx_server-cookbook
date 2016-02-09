@@ -5,7 +5,10 @@ nginx_server_vhost 'minimal config' do
 end
 
 nginx_server_vhost 'kitchen sink' do
-  server_name 'www.example.org'
+  server_name [
+    'www.example.org',
+    'example.org'
+  ]
   listen [
     {
     },

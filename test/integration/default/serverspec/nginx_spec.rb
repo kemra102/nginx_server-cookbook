@@ -46,6 +46,7 @@ describe file('/etc/nginx/conf.d/minimal_config.conf') do
 end
 
 describe file('/etc/nginx/conf.d/kitchen_sink.conf') do
+  it { should contain 'server_name www.example.org example.org;' }
   it { should contain 'listen 0.0.0.0:81 spdy;' }
   it { should contain 'listen *:82 spdy;' }
   it { should contain 'listen 0.0.0.0:83 spdy;' }

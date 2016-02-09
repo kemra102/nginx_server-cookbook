@@ -4,7 +4,11 @@ server {
   <%= line %>
     <%- end -%>
   <% end %>
+  <%- if @server_name.kind_of?(Array) -%>
+  server_name <%= @server_name.join(' ') %>;
+  <%- else -%>
   server_name <%= @server_name %>;
+  <%- end -%>
 
   root <%= @root %>;
 
