@@ -4,6 +4,9 @@ Metrics/LineLength:
 Style/WordArray:
   Exclude:
     - 'test/fixtures/cookbooks/nginx_server-test/recipes/default.rb'
+Style/ConditionalAssignment:
+  Exclude:
+    - 'resources/vhost.rb'
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
     - 'test/fixtures/cookbooks/nginx_server-test/recipes/default.rb'

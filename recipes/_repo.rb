@@ -8,6 +8,6 @@ when 'nginx-mainline'
   node.default['yum-nginx']['repos']['nginx-mainline']['managed'] = true
   include_recipe 'yum-nginx::default'
 else
-  fail("#{node['nginx_server']['repo']} is not an allowed value for
-    node['nginx_server']['repo'].")
+  Chef::Application.fatal!("#{node['nginx_server']['repo']} is not an allowed
+    value for node['nginx_server']['repo'].", 1)
 end
