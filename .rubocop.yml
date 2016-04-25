@@ -1,4 +1,5 @@
 Metrics/LineLength:
+  Max: 85
   Exclude:
     - 'test/integration/default/serverspec/nginx_spec.rb'
 Style/WordArray:
