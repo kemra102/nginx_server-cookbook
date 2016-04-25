@@ -15,12 +15,12 @@ user 'nginx' do
   home '/nonexistent'
   shell '/bin/false'
   manage_home false
-  only_if { node.platform == 'ubuntu' && node.platform_version.to_f == 15.10 }
+  only_if { node['platform'] == 'ubuntu' && node['platform_version'].to_f == 15.10 }
 end
 
 group 'nginx' do
   action :create
-  only_if { node.platform == 'ubuntu' && node.platform_version.to_f == 15.10 }
+  only_if { node['platform'] == 'ubuntu' && node['platform_version'].to_f == 15.10 }
 end
 
 package 'nginx'

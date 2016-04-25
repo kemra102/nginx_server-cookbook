@@ -1,5 +1,5 @@
-unless node.platform_family == 'rhel' || node.platform_family == 'debian'
-  Chef::Application.fatal!("Unsupported Linux distribution - #{node.platform}", 1)
+unless node['platform_family'] == 'rhel' || node['platform_family'] == 'debian'
+  Chef::Application.fatal!("Unsupported Linux distribution - #{node['platform']}", 1)
 end
 
 case node['nginx_server']['repo']
