@@ -22,7 +22,7 @@ Requires Chef 12.5 or later as this cookbook makes use of [Custom Resources](htt
 
 ## Attributes
 
-### yumserver::default
+### nginx_server::default
 | Key                               | Type      | Description                                   | Default |
 |:---------------------------------:|:---------:|:---------------------------------------------:|:-------:|
 | `['nginx_server']['manage_repo']` | `Boolean` | If the cookbook should manage the NGINX repo. | `true`  |
