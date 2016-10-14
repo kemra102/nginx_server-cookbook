@@ -17,7 +17,7 @@ template '/etc/nginx/nginx.conf' do
   group 'root'
   mode '0644'
   verify 'nginx -t -c /etc/nginx/nginx.conf'
-  notifies :restart, 'service[nginx]', :delayed
+  notifies :reload, 'service[nginx]', :delayed
 end
 
 if node['nginx_server']['manage_confd'] # ~FC023
