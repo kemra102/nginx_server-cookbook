@@ -6,7 +6,7 @@ DEPENDENCIES
     path: test/fixtures/cookbooks/nginx_server-test
 
 GRAPH
-  nginx_server (1.0.1)
+  nginx_server (1.1.0)
     yum-epel (>= 0.3.6)
     yum-nginx (>= 0.0.0)
     zap (>= 0.6.0)

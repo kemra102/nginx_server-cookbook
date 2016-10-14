@@ -1,3 +1,13 @@
+## 2016-10-14
+### Summary
+Small feature release
+
+#### Bugfixes
+- Reload instead of restart when updating the main config in order to avoid interruptions to service.
+
+#### Features
+- Can now add additional parameters to the main NGINX config.
+
 ## 2016-02-09
 ### Small bugfix release
 
