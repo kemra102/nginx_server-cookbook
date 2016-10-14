@@ -23,5 +23,19 @@ http {
 
   gzip <%= node['nginx_server']['config']['gzip'] %>;
 
+  <%- if node['nginx_server']['config']['additional'] -%>
+    <%- node['nginx_server']['config']['additional'].each_pair do |k, v| -%> 
+      <%- unless v.respond_to?(:each_pair) -%>
+  <%= "#{k} #{v};" %>
+      <%- else -%>
+  <%= "#{k} \{" %>
+        <%- v.each_pair do |k, v| -%>
+    <%= "#{k} #{v};" %>
+        <%- end -%>
+  <%= '}' %>
+      <%- end -%>
+    <%- end -%>
+  <%- end -%>
+
   include /etc/nginx/conf.d/*.conf;
 }

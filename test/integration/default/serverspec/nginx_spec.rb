@@ -25,6 +25,11 @@ describe file('/etc/nginx/nginx.conf') do
   it { should contain 'tcp_nopush off;' }
   it { should contain 'keepalive_timeout 65;' }
   it { should contain 'gzip off;' }
+  it { should contain 'gzip_http_version 1.0;' }
+  it { should contain 'gzip_comp_level 5;' }
+  it { should contain 'gzip_proxied any;' }
+  it { should contain 'gzip_vary on;' }
+  it { should contain 'gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy text/html;' }
 end
 
 describe file('/etc/nginx/conf.d/default.conf') do
