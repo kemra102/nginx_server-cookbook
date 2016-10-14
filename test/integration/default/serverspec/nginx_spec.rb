@@ -10,7 +10,7 @@ describe file('/etc/yum.repos.d/nginx-mainline.repo') do
 end
 
 describe package('nginx') do
-  it { should be_installed.with_version('1.9') }
+  it { should be_installed.with_version('1.11') }
 end
 
 describe file('/etc/nginx/nginx.conf') do
