@@ -29,12 +29,13 @@ Requires Chef 12.5 or later as this cookbook makes use of [Custom Resources](htt
 | `['nginx_server']['repo']` | `String` | Which repo to install NGINX from. Only used when `['nginx_server']['manage_repo']` is `true`. Possible values are; `epel`, `nginx-stable` & `nginx-mainline`. | `nginx-stable`  |
 | `['nginx_server']['manage_confd']` | `Boolean` | Whether or not we should *zap* `/etc/nginx/conf.d`. | `true`  |
 | `['nginx_server']['error_log_level']` | `String` | [http://nginx.org/en/docs/ngx_core_module.html#error_log](http://nginx.org/en/docs/ngx_core_module.html#error_log) | `warn`  |
-| `['nginx_server']['worker_connections']` | `Integer` | [http://nginx.org/en/docs/ngx_core_module.html#worker_connections](http://nginx.org/en/docs/ngx_core_module.html#worker_connections) | `1024`  |
-| `['nginx_server']['log_format']` | `String` | [http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format) | ```"\'$remote_addr - \$remote_user [\$time_local] \"\$request\" ' '\$status \$body_bytes_sent \"\$http_referer\" ' '\"\$http_user_agent\" \"\$http_x_forwarded_for\"'"``` |
-| `['nginx_server']['sendfile']` | `String` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile](http://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile) | `on`  |
-| `['nginx_server']['tcp_nopush']` | `String` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush](http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush) | `off`  |
-| `['nginx_server']['keepalive_timeout']` | `Integer` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout](http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout) | `65`  |
-| `['nginx_server']['gzip']` | `String` | [http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip](http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip) | `off`  |
+| `['nginx_server']['config']['worker_connections']` | `Integer` | [http://nginx.org/en/docs/ngx_core_module.html#worker_connections](http://nginx.org/en/docs/ngx_core_module.html#worker_connections) | `1024`  |
+| `['nginx_server']['config']['log_format']` | `String` | [http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format) | ```"\'$remote_addr - \$remote_user [\$time_local] \"\$request\" ' '\$status \$body_bytes_sent \"\$http_referer\" ' '\"\$http_user_agent\" \"\$http_x_forwarded_for\"'"``` |
+| `['nginx_server']['config']['sendfile']` | `String` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile](http://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile) | `on`  |
+| `['nginx_server']['config']['tcp_nopush']` | `String` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush](http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush) | `off`  |
+| `['nginx_server']['config']['keepalive_timeout']` | `Integer` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout](http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout) | `65`  |
+| `['nginx_server']['config']['gzip']` | `String` | [http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip](http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip) | `off`  |
+| `['nginx_server']['config']['additional']` | `Hash` | Additional config to be applied to the main NGINX config. | `N/A` | 
 
 ## Usage
 
