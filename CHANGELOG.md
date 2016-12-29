@@ -1,3 +1,10 @@
+## 2016-12-29 - Release 1.2.0
+### Summary
+Small feature release.
+
+#### Features
+- Fixed [Issue #2](https://github.com/kemra102/nginx_server-cookbook/issues/2): Added support to vhost template to enable multiple instances of `fastcgi_param`.
+
 ## 2016-10-14
 ### Summary
 Small feature release
