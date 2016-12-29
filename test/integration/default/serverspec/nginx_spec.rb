@@ -65,6 +65,13 @@ describe file('/etc/nginx/conf.d/kitchen_sink.conf') do
   it { should contain 'include fastcgi_params;' }
 end
 
+describe file('/etc/nginx/conf.d/fastcgi_params.conf') do
+  it { should contain 'location ~* \.php$ {' }
+  it { should contain 'fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;' }
+  it { should contain 'fastcgi_param SCRIPT_NAME $fastcgi_script_name;' }
+  it { should contain 'fastcgi_param SERVER_NAME $host;' }
+end
+
 describe file('/etc/nginx/conf.d/simple_upstream.conf') do
   it { should be_file }
   it { should be_owned_by 'root' }

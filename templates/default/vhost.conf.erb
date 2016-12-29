@@ -15,13 +15,19 @@ server {
   index <%= @index %>;
 
   <%- if @config -%>
-    <%- @config.each_pair do |k, v| -%> 
+    <%- @config.each_pair do |k, v| -%>
       <%- unless v.respond_to?(:each_pair) -%>
   <%= "#{k} #{v};" %>
       <%- else -%>
   <%= "#{k} \{" %>
         <%- v.each_pair do |k, v| -%>
-    <%= "#{k} #{v};" %>
+          <%- if k == 'fastcgi_params' -%>
+            <%- v.each do |param| -%>
+    <%= "fastcgi_param #{param};" %>
+            <%- end -%>
+          <%- else -%>
+      <%= "#{k} #{v};" %>
+          <%- end -%>
         <%- end -%>
   <%= '}' %>
       <%- end -%>

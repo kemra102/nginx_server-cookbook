@@ -35,7 +35,7 @@ Requires Chef 12.5 or later as this cookbook makes use of [Custom Resources](htt
 | `['nginx_server']['config']['tcp_nopush']` | `String` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush](http://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush) | `off`  |
 | `['nginx_server']['config']['keepalive_timeout']` | `Integer` | [http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout](http://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout) | `65`  |
 | `['nginx_server']['config']['gzip']` | `String` | [http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip](http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip) | `off`  |
-| `['nginx_server']['config']['additional']` | `Hash` | Additional config to be applied to the main NGINX config. | `N/A` | 
+| `['nginx_server']['config']['additional']` | `Hash` | Additional config to be applied to the main NGINX config. | `N/A` |
 
 ## Usage
 
@@ -148,6 +148,27 @@ location ~ \.php$ {
 ```
 
 For more examples see the cookbook's integration test cookbook.
+
+##### `fastcgi_param`
+
+Because `config` is declared as a Ruby Hash you cannot declare multiple instances of `fastcgi_param` as each new declaration will override the previous.
+
+In order to work around this you can specify multiple instances of `fastcgi_param` using `fastcgi_params`:
+
+```ruby
+config ({
+  'location ~* \.php$' => {
+    'fastcgi_pass' => 'unix:/var/run/php5-fpm.sock',
+    'fastcgi_index' => 'index.php',
+    'include' => 'fastcgi_params',
+    'fastcgi_params' => [
+      'SCRIPT_FILENAME $document_root$fastcgi_script_name',
+      'SCRIPT_NAME $fastcgi_script_name',
+      'SERVER_NAME $host'
+    ]
+  }
+})
+```
 
 ### nginx_server_upstream
 

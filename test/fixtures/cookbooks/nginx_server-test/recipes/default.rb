@@ -54,6 +54,22 @@ nginx_server_vhost 'kitchen sink' do
   })
 end
 
+nginx_server_vhost 'fastcgi_params' do
+  server_name [
+    'www.example.com',
+    'example.com'
+  ]
+  config ({
+    'location ~* \.php$' => {
+      'fastcgi_params' => [
+        'SCRIPT_FILENAME $document_root$fastcgi_script_name',
+        'SCRIPT_NAME $fastcgi_script_name',
+        'SERVER_NAME $host'
+      ]
+    }
+  })
+end
+
 nginx_server_upstream 'simple upstream' do
   upstream_name 'simple'
   servers [
