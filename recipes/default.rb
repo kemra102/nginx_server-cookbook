@@ -8,6 +8,21 @@
 #
 include_recipe 'nginx_server::_repo' if node['nginx_server']['manage_repo']
 
+# Workaround for Ubuntu 15.10 not creating nginx user and group.
+user 'nginx' do
+  action :create
+  comment 'nginx user'
+  home '/nonexistent'
+  shell '/bin/false'
+  manage_home false
+  only_if { node['platform'] == 'ubuntu' && node['platform_version'].to_f == 15.10 }
+end
+
+group 'nginx' do
+  action :create
+  only_if { node['platform'] == 'ubuntu' && node['platform_version'].to_f == 15.10 }
+end
+
 package 'nginx'
 
 template '/etc/nginx/nginx.conf' do

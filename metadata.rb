@@ -18,3 +18,4 @@ issues_url 'https://github.com/kemra102/nginx_server-cookbook/issues' if
 depends 'yum-epel', '>= 0.3.6'
 depends 'yum-nginx'
 depends 'zap', '>= 0.6.0'
+depends 'apt-nginx'
